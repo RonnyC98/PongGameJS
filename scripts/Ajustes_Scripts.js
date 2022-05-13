@@ -2,7 +2,7 @@
 //FUNCIONES QUE USAREMOS---
 //-------------------------
 
-const ajustes_audio = new Audio("../audio/ajustes.mp3")
+const ajustes_audio = new Audio("../audios/ajustes.mp3")
 if (localStorage.getItem("sonido") == "on") {
     ajustes_audio.play()
     ajustes_audio.addEventListener('ended', function () {
@@ -83,6 +83,12 @@ switch (pelotaAct) {
         break;
 }
 
+//Recuperando y marcando Ajustes Puntos Partida
+var puntosPAct = localStorage.getItem("puntosPartida")
+var radioPuntosNombre = "radio_puntos_" + puntosPAct
+var labelPuntosNombre = "pp_" + puntosPAct
+marcarRadioLabelAjuste(radioPuntosNombre, labelPuntosNombre)
+
 //Recuperando y marcando Ajustes DIFUCULTAD
 var dificultadAct = localStorage.getItem("dificultad")
 switch (dificultadAct) {
@@ -112,7 +118,7 @@ switch (sonidoAct) {
 //GESTIONANDO EFECTO DE SELECCIÓN, ESTILOS, UNA SELECCIÓN POR GRUPO (Ver función grupo_ajustes())--------
 //-------------------------------------------------------------------------------------------------------
 
-const grupos_ajustes = [".grupo_tema", ".grupo_dificultad", ".grupo_sonido"]
+const grupos_ajustes = [".grupo_tema", ".grupo_puntos", ".grupo_dificultad", ".grupo_sonido"]
 gestionarGruposAjustes(grupos_ajustes)
 
 //--------------------------------------------------------------------------------------
@@ -121,7 +127,7 @@ gestionarGruposAjustes(grupos_ajustes)
 
 document.getElementById("guardar").onclick = function () {
 
-    //Guardando Ajustes Fondo
+    //Guardando Ajustes Tema
     var tema = document.querySelector('input[name="tema"]:checked').value
     switch (tema) {
         case "futbol":
@@ -138,6 +144,10 @@ document.getElementById("guardar").onclick = function () {
             break;
     }
     localStorage.setItem('tema', tema)
+
+    //Guardando Ajustes Puntos Partida
+    var puntosPP = document.querySelector('input[name="puntos"]:checked').value
+    localStorage.setItem("puntosPartida", puntosPP)
 
     //Guardando Ajustes Dificultad
     var dificultad = document.querySelector('input[name="dificultad"]:checked').value

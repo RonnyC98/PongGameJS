@@ -91,6 +91,10 @@ function actualizar(modificador) {
 
   /*Si la pelota toca o es menor que el límite de la IZQUIERDA, MARCA EL JUGADOR 2*/
   if (pelota.x <= 0) {
+
+    //Ver Función en Elementos.js
+    gestSonido("pong")
+
     //Incrementamos su puntuación
     p2.score++;
 
@@ -98,6 +102,8 @@ function actualizar(modificador) {
     if (p2.score == parseInt(localStorage.getItem("puntosPartida"))) {
       //Gestionamos cuadros, promesa... VER FUNCIÓN EN actualizar.js
       aplicar_victoria("2", "rojo")
+      tema_audio.pause()
+      gestSonido("victoria")
     }
     //Reseteamos posiciones de elementos para sacar y comenzar una nueva partida
     /*VER FUNCIÓN EN ARCHIVO .js*/
@@ -106,6 +112,10 @@ function actualizar(modificador) {
 
   /*Si la pelota toca o es mayor que el límite de la DERECHA, MARCA EL JUGADOR 1 (IDEM)*/
   if (pelota.x >= canvas.width - pelota.tamano) {
+
+    //Ver Función en Elementos.js
+    gestSonido("pong")
+
     //Incrementamos su puntuación
     p1.score++;
 
@@ -113,6 +123,8 @@ function actualizar(modificador) {
     if (p1.score == parseInt(localStorage.getItem("puntosPartida"))) {
       //Gestionamos cuadros, promesa... VER FUNCIÓN EN actualizar.js
       aplicar_victoria("1", "azul")
+      tema_audio.pause()
+      gestSonido("victoria")
     }
     //Reseteamos posiciones de elementos para sacar y comenzar una nueva partida
     /*VER FUNCIÓN EN ARCHIVO .js*/
@@ -131,6 +143,9 @@ function actualizar(modificador) {
     && p1.x <= (pelota.x + pelota.tamano)
     && pelota.y <= (p1.y + p1.height)
     && p1.y <= (pelota.y + pelota.tamano)) {
+
+    //Ver Función en Elementos.js
+    gestSonido("pic")
 
     /*VAMOS A HACER USO DE LA LIBRERÍA DE VECTORES Y LA FUNCIONES QUE HEMOS IDO
       CREANDO CON ELLA PARA CALCULAR UNA REFLEXIÓN DE LA PELOTA ALGO MÁS REALISTA*/
@@ -155,6 +170,9 @@ function actualizar(modificador) {
     && pelota.y <= (p2.y + p2.height)
     && p2.y <= (pelota.y + pelota.tamano)) {
 
+    //Ver Función en Elementos.js
+    gestSonido("pic")
+
     var a = p2.points[0].clone()
     var b = p2.points[3].clone()
     p2.direction = b.subSelf(a).normalize();
@@ -169,6 +187,8 @@ function actualizar(modificador) {
 
   //Si la pelota toca o es menor que el límite SUPERIOR (REBOTE PARTE DE ARRIBA)
   if (pelota.y <= 0) {
+    //Ver Función en Elementos.js
+    gestSonido("poc")
     //Calculamos una relexión "normal" con una pared estática
     pelota.deflect(new Vector2(1, 0));
     //Por si se sale del límite
@@ -177,6 +197,8 @@ function actualizar(modificador) {
 
   //Si la pelota toca o es mayor que el límite INFERIOR (REBOTE PARTE DE ABAJO)
   if (pelota.y + pelota.tamano >= canvas.height) {
+    //Ver Función en Elementos.js
+    gestSonido("poc")
     //Calculamos una relexión "normal" con una pared estática
     pelota.deflect(new Vector2(1, 0));
     //Por si se sale del límite

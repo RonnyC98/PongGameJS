@@ -11,10 +11,6 @@ body {
     align-items: center;
 }
 
-*{
-    cursor: url('output-onlinepngtools.png'), auto;
-}
-
 /*TÍTULO*/
 .titulo_animado {
     background-image: linear-gradient(-225deg,

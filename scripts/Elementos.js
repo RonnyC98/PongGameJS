@@ -225,7 +225,7 @@ function myPromise() {
 //FUNCIÓN QUE GESTIONA LA VICTORIA (mostrar cuadros, promesa, contador)---
 //------------------------------------------------------------------------
 function aplicar_victoria(jugador, color) {
-  
+
   //Bloqueamos la tecla espacio, para que acabe la partida por si acaso
   addEventListener("keydown", function (e) {
     if (e.key === ' ' || e.key === 'Spacebar') {
@@ -273,4 +273,37 @@ function aplicar_victoria(jugador, color) {
     };
   })
 
+}
+
+const tema_audio = new Audio("../audios/tema_principal.mp3")
+if (localStorage.getItem("sonido") == "on") {
+    tema_audio.play()
+    tema_audio.addEventListener('ended', function () {
+        this.currentTime = 0
+        this.play()
+    }, false)
+}
+
+const pong_audio = new Audio("../audios/pong.mp3")
+const pic_audio = new Audio("../audios/pic.mp3")
+const poc_audio = new Audio("../audios/poc.mp3")
+const victoria_audio = new Audio("../audios/victoria.mp3")
+
+function gestSonido(sonido) {
+  if (localStorage.getItem("sonido") == "on") {
+    switch (sonido) {
+      case "pic":
+        pic_audio.play()
+        break;
+      case "poc":
+        poc_audio.play()
+        break;
+      case "pong":
+        pong_audio.play()
+        break;
+      case "victoria":
+        victoria_audio.play()
+        break;
+    }
+  }
 }
