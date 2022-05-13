@@ -155,9 +155,58 @@ function reset() {
   p1.updatePivot();
   p2.resetPoints();
   p2.updatePivot();
-  
+
   //Reseteamos la dirección de paletas 1 y 2
   p1.direction.set(0, 1);
   p2.direction.set(-0, 1);
-  
+
+}
+
+
+timeLeft = 5;
+function countdown() {
+  timeLeft--;
+  document.getElementById("seconds").innerHTML = String(timeLeft);
+  if (timeLeft > 0) {
+    setTimeout(countdown, 1000);
+  }
+};
+/*
+let myPromise = new Promise(function(myResolve, myReject) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.htm");
+  req.onload = function() {
+    if (req.status == 200) {
+      myResolve(req.response);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send();
+});*/
+
+function myPromise() {
+  return new Promise(function (myResolve, myReject) {
+
+    var sePulso = false
+
+    document.onclick = function () {
+      sePulso = true
+      clearTimeout(myTim);
+    };
+
+    var myTim = setTimeout(function () {
+      sePulso = false
+    }, 3000)
+
+    setTimeout(function () {
+      if (sePulso) {
+        myResolve("se puso");
+      } else {
+        myReject("error promesa, no lo ha pulsado");
+      }
+    }, 3000)
+
+
+  })
 }

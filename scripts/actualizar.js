@@ -106,15 +106,8 @@ function actualizar(modificador) {
       document.body.style.animation = "fondo_rojo_animacion 1s forwards"
       document.getElementById("container").style.animation = "aparece 1s forwards";
       document.getElementById("nombre_ganador").innerHTML = "2"
-      timeLeft = 5;
-
-      function countdown() {
-        timeLeft--;
-        document.getElementById("seconds").innerHTML = String(timeLeft);
-        if (timeLeft > 0) {
-          setTimeout(countdown, 1000);
-        }
-      };
+      
+      
 
       setTimeout(countdown, 1000);
     }
@@ -139,6 +132,15 @@ function actualizar(modificador) {
       document.body.style.animation = "fondo_azul_animacion 1s forwards"
       document.getElementById("container").style.animation = "aparece 1s forwards";
       document.getElementById("nombre_ganador").innerHTML = "1"
+
+      myPromise().then(function(mensaje){
+        console.log(mensaje);
+      }).catch(function(error){
+        setTimeout(countdown, 1000);
+      })
+
+      
+
     }
     reset();
   }
