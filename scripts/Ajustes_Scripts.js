@@ -162,4 +162,11 @@ document.getElementById("cancelar").onclick = function () {
 
 //--------------------------------
 //AL PULSAR LA TECLA ESC---
-/
+//--------------------------------
+
+//Redirigimos a la portada, sin guardar
+document.onkeydown = function keyPress (e) {
+    if(e.key === "Escape") {
+        location.href = "Ronny_Collaguazo_Pilatuña_Práctica4.html";
+    }
+}
