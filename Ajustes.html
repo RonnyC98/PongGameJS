@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Ajustes_Styles.css">
+</head>
+
+<body>
+
+    <!--Titulo AJUSTES animado-->
+    <h3 class="titulo_animado">Ajustes</h3>
+
+    <!--Conjunto de ajustes-->
+    <div id="container">
+        <!--Ajustes de fondo, opciones: animado y color-->
+        <h2>Tema</h2>
+        <br>
+        <div class="fila_ajustes">
+            <label class="ajuste grupo_tema" id="t_defecto">
+                <div>Defecto</div>
+                <input type="radio" name="tema" value="defecto" id="radio_tema_defecto">
+            </label>
+            <label class="ajuste grupo_tema" id="t_futbol">
+                <div>Fútbol</div>
+                <input type="radio" name="tema" value="futbol" id="radio_tema_futbol">
+            </label>
+            <label class="ajuste grupo_tema" id="t_baloncesto">
+                <div>Baloncesto</div>
+                <input type="radio" name="tema" value="baloncesto" id="radio_tema_baloncesto">
+            </label>
+            <label class="ajuste grupo_tema" id="t_tenis">
+                <div>Tenis</div>
+                <input type="radio" name="tema" value="tenis" id="radio_tema_tenis">
+            </label>
+        </div>
+        
+        <!--Ajustes de dificultad, opciones: fácil, normal, difícil-->
+        <h2>Dificultad</h2>
+        <br>
+        <div class="fila_ajustes">
+            <label class="ajuste ajusteD grupo_dificultad" id="d_facil">
+                <div>Fácil</div>
+                <input type="radio" name="dificultad" value="facil" id="radio_dificultad_facil">
+            </label>
+            <label class="ajuste ajusteD grupo_dificultad" id="d_normal">
+                <div>Normal</div>
+                <input type="radio" name="dificultad" value="normal" id="radio_dificultad_normal">
+            </label>
+            <label class="ajuste ajusteD grupo_dificultad" id="d_dificil">
+                <div>Difícil</div>
+                <input type="radio" name="dificultad" value="dificil" id="radio_dificultad_dificil">
+            </label>
+        </div>
+        <!--Ajustes de sonido, opciones: activado y desactivado-->
+        <h2>Sonido</h2>
+        <br>
+        <div class="fila_ajustes">
+            <label class="ajuste ajusteS grupo_sonido" id="s_activado">
+                <div>Activado</div>
+                <input type="radio" name="sonido" value="on" id="radio_sonido_activado">
+            </label>
+            <label class="ajuste ajusteS grupo_sonido" id="s_desactivado">
+                <div>Desactivado</div>
+                <input type="radio" name="sonido" value="off" id="radio_sonido_desactivado">
+            </label>
+        </div>
+        <!--Botones de guardar y cancelar-->
+        <div class="boton" id="guardar_boton">
+            <a href="#" id="guardar"><span>Guardar</span></a>
+        </div>
+        <div class="boton" id="cancelar_boton">
+            <a href="#" id="cancelar"><span>Cancelar</span></a>
+        </div>
+    </div>
+
+    <!------------------------------>
+    <!--Ponemos el script al final-->
+    <!------------------------------>
+    <script src="Ajustes_Scripts.js"></script>
+
+</body>
+
+</html>

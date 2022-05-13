@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <!--Tutorial JQuery: https://www.w3schools.com/jquery/default.asp-->
+    <script src="Datos_Ajustes.js"></script>
+    <link rel="stylesheet" href="Ronny_Collaguazo_Pilatuña_Práctica4.css">
+</head>
+
+<body>
+
+    <!--Título PONG animado-->
+    <h3 class="titulo_animado">PONG!</h3>
+
+    <!--Botones-->
+    <div id="grupo_botones">
+        <button id="play" class="btn">Jugar (1 vs COM)</button>
+        <div class="botones_abajo">
+            <button id="ajustes" class="btn">Ajustes</button>
+            <button id="instrucciones" class="btn">Instrucciones</button>
+        </div>
+    </div>
+
+    <!--Cuadro de instrucciones que solo se muestra al darle al botón de instrucciones-->
+    <div id="cuadro_instrucciones">
+        <h1>INSTRUCCIONES</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem commodi ex tempore iure
+            consequatur tempora iste, neque soluta ad? Quia, earum debitis corporis repellat tempore incidunt amet
+            eligendi neque.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aliquam alias, dicta obcaecati maiores nam
+            nisi totam omnis nobis consectetur quis tempora! Ipsa dolor ut aperiam inventore, mollitia deserunt error.
+            kasdfñdsljasdfljljksfObcaecati doloremque, nulla esse dolores soluta eligendi vero sunt ratione placeat
+            voluptatem, minima voluptatibus unde. Autem impedit quod corrupti dicta sunt voluptatibus!
+        </p>
+        <div class="inst_img"><img src="images/gameplay.png" alt=""></div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ad, neque quas esse nostrum ipsum doloremque
+            voluptates autem nulla cupiditate fugiat a commodi omnis, odio officiis quidem similique fugit vitae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis blanditiis nulla molestias
+            voluptatibus molestiae tenetur reprehenderit, laudantium cumque unde expedita. Blanditiis a quod cum? Nulla
+            sit aspernatur culpa architecto magni?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, totam illum. Nemo, reprehenderit?
+            Delectus excepturi non laboriosam eligendi? Facere assumenda doloremque necessitatibus accusantium suscipit
+            illo quam! Expedita quas praesentium magni.
+        </p>
+        <div class="inst_img"><img src="images/ajustes_cap.JPG" alt=""></div>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius in eveniet facere rem veritatis doloribus
+            maiores est dolorum ab enim eaque, nihil aperiam velit, quibusdam minima nostrum neque, ad ut!
+            <br><br>
+        <h3>GRACIAS POR JUGAR</h3>
+        </p>
+        <button id="atras_inst" class="inst_btn">Atrás</button>
+    </div>
+
+    <!--Creamos unos ajustes por defecto, si no los hay-->
+    <script>
+        crearDatosAjustesLS()
+    </script>
+
+    <!-- ** JQUERY **-->
+    <!--GESTIONAMOS LAS ACCIONES DEL LOS BOTONES CON JQUERY-->
+    <script>
+        //Por defecto ocultamos el cuadro de instrucciones
+        $("#cuadro_instrucciones").hide()
+        //Al darle al botón de Ajustes, nos lleva a la página Ajustes.html
+        $("#ajustes").click(function () {
+            location.href = "Ajustes.html"
+        })
+        //Al darle al botón de Jugar, nos lleva a la página Juego.html
+        $("#play").click(function () {
+            location.href = "index.html"
+        })
+        /*Al darle al botón de Instrucciones nos muestra, en la misma página el cuadro de instrucciones
+          podemos salir pulsando la tecla ESC*/
+        $("#instrucciones").click(function () {
+            $("#cuadro_instrucciones").show("fast")
+            //Detecta ESC y redirigimos 
+            $(document).keyup(function (e) {
+                if (e.key == "Escape") {
+                    location.href = "Ronny_Collaguazo_Pilatuña_Práctica4.html"
+                }
+            })
+        })
+        //Al darle al botón de Atrás, en el cuadro de instrucciones, ocultamos el cuadro desvaneciéndolo
+        $("#atras_inst").click(function () {
+            $("#cuadro_instrucciones").fadeOut()
+        })
+    </script>
+
+    <script>
+    

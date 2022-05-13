@@ -1,0 +1,143 @@
+html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+body {
+    background-color: black;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+*{
+    cursor: url('output-onlinepngtools.png'), auto;
+}
+
+/*TÍTULO*/
+.titulo_animado {
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 16%,
+            #ff1361 32%,
+            #fff800 48%,
+            #ff1361 66%,
+            #44107a 82%,
+            #231557 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fondo_animado 2s linear infinite;
+    animation-direction: reverse;
+    font-size: 10em;
+    margin: 0;
+}
+
+/*Animación para movimiento del fondo de texto gradiente*/
+@keyframes fondo_animado {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/*BOTONES*/
+#grupo_botones {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 60%;
+    max-width: 450px;
+    margin-top: 1em;
+}
+
+.btn {
+    box-sizing: border-box;
+    background-color: transparent;
+    border-radius: 0.6em;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    padding: 1em 2.6em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-color: white;
+    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 white;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
+}
+
+.botones_abajo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 0.5em;
+}
+.botones_abajo > button:first-child{
+    flex-grow: 2;
+}
+.botones_abajo > button:nth-child(2){
+    flex-grow: 1;
+}
+
+/*CUADRO INSTRUCCIONES*/
+#cuadro_instrucciones {
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
+    border: 1px solid black;
+    background-color: #ffffff;
+    margin: 0 auto;
+    height: 40em;
+    position: absolute;
+    width: 50em;
+    overflow: auto;
+}
+
+.inst_img {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 0 black inset, 0 0 5px 2px black;
+}
+
+.inst_img img {
+    width: 100%;
+}
+
+.inst_btn {
+    padding: 0.5em;
+    font-size: 1.2em;
+    border: 1px solid black;
+    box-shadow: 0 0 2px 0 black inset, 0 0 2px 1px black;
+}
+
+#cuadro_instrucciones h1 {
+    text-decoration: underline;
+}
+
+/*Barra de progreso del cuadro de instrucciones*/
+
+#cuadro_instrucciones::-webkit-scrollbar {
+    width: 15px;
+    background-color: #dbdbdb;
+}
+
+#cuadro_instrucciones::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-image: linear-gradient(-225deg,
+    #44107a 0%,
+    #ff1361 50%,
+    #fff800 100%);
+}
