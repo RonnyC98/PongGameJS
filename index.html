@@ -75,7 +75,7 @@
       margin-top: 1em;
       background-color: white;
       width: 50em;
-      height: 40em;
+      height: 35em;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -128,19 +128,49 @@
     }
 
     #clock {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      border-radius: 100%;
       background-color: lightgrey;
-      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
     }
 
-    #seconds{
-      display: block;
+    #seconds {
       width: 100%;
       margin: auto;
       text-align: center;
-      font-size: 2em;
+      font-size: 8em;
+    }
+
+    .botones {
+      margin-bottom: 0.5em;
+    }
+    
+    #contador{
+      height: 0;
+      opacity: 0;
+      text-align: center;
+    }
+    @keyframes aumentaAlturaAnimacion {
+      to {
+        height: 50em;
+      }
+    }
+    @keyframes aparece2 {
+      to {
+        opacity: 1;
+        height: max-content;
+      }
+    }
+    #contador h5{
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    #contador h2{
+      margin-bottom: 0.5em;
     }
   </style>
   <!--Comentado-->
@@ -167,12 +197,16 @@
       <img src="assets/ganador_img.png" alt="trofeo_ganador">
     </div>
     <h1>Ha ganado el jugador <span id="nombre_ganador">a</span></h1>
-    <div id="clock">
-      <span id="seconds">5</span>
-    </div>
     <div class="botones">
       <button id="jugar" class="btn_ganador">Jugar de nuevo</button>
       <button id="salir2" class="btn_ganador">Salir</button>
+    </div>
+    <div id="contador">
+      <h2>Saliendo automáticamente en...</h2>
+      <h5>(Haga click en cualquier sitio para parar)</h5>
+      <div id="clock">
+        <span id="seconds">5</span>
+      </div>
     </div>
   </div>
 

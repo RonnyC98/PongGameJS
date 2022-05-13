@@ -94,22 +94,10 @@ function actualizar(modificador) {
     //Incrementamos su puntuación
     p2.score++;
 
+    //SI LLEGÓ AL LOS PUNTOS NECESARIOS PARA GANAR. EL JUGADOR 2 GANA
     if (p2.score == parseInt(localStorage.getItem("puntosPartida"))) {
-
-      addEventListener("keydown", function (e) {
-        if (e.key === ' ' || e.key === 'Spacebar') {
-          finalizada_partida = true
-        }
-      })
-
-      document.getElementsByTagName('canvas')[0].style.animation = "desvanece 1s forwards";
-      document.body.style.animation = "fondo_rojo_animacion 1s forwards"
-      document.getElementById("container").style.animation = "aparece 1s forwards";
-      document.getElementById("nombre_ganador").innerHTML = "2"
-      
-      
-
-      setTimeout(countdown, 1000);
+      //Gestionamos cuadros, promesa... VER FUNCIÓN EN actualizar.js
+      aplicar_victoria("2", "rojo")
     }
     //Reseteamos posiciones de elementos para sacar y comenzar una nueva partida
     /*VER FUNCIÓN EN ARCHIVO .js*/
@@ -118,30 +106,16 @@ function actualizar(modificador) {
 
   /*Si la pelota toca o es mayor que el límite de la DERECHA, MARCA EL JUGADOR 1 (IDEM)*/
   if (pelota.x >= canvas.width - pelota.tamano) {
+    //Incrementamos su puntuación
     p1.score++;
 
+    //SI LLEGÓ AL LOS PUNTOS NECESARIOS PARA GANAR. EL JUGADOR 1 GANA
     if (p1.score == parseInt(localStorage.getItem("puntosPartida"))) {
-
-      addEventListener("keydown", function (e) {
-        if (e.key === ' ' || e.key === 'Spacebar') {
-          finalizada_partida = true
-        }
-      })
-
-      document.getElementsByTagName('canvas')[0].style.animation = "desvanece 1s forwards";
-      document.body.style.animation = "fondo_azul_animacion 1s forwards"
-      document.getElementById("container").style.animation = "aparece 1s forwards";
-      document.getElementById("nombre_ganador").innerHTML = "1"
-
-      myPromise().then(function(mensaje){
-        console.log(mensaje);
-      }).catch(function(error){
-        setTimeout(countdown, 1000);
-      })
-
-      
-
+      //Gestionamos cuadros, promesa... VER FUNCIÓN EN actualizar.js
+      aplicar_victoria("1", "azul")
     }
+    //Reseteamos posiciones de elementos para sacar y comenzar una nueva partida
+    /*VER FUNCIÓN EN ARCHIVO .js*/
     reset();
   }
 

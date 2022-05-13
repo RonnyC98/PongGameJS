@@ -162,51 +162,115 @@ function reset() {
 
 }
 
+//-------------------------------------
+//CONTADOR PARA USARLO EN LA PROMESA---
+//-------------------------------------
 
-timeLeft = 5;
-function countdown() {
-  timeLeft--;
-  document.getElementById("seconds").innerHTML = String(timeLeft);
-  if (timeLeft > 0) {
-    setTimeout(countdown, 1000);
+//Tiempo inicial
+tiempoSeg = 5;
+function cuenta_atras() {
+  tiempoSeg--;
+  //Lo imprimimos
+  document.getElementById("seconds").innerHTML = String(tiempoSeg);
+  if (tiempoSeg > 0) {
+    setTimeout(cuenta_atras, 1000);
+  }
+  //Si acaba (llega a 0)
+  if (tiempoSeg == 0) {
+    //Lo llevamos a la portada
+    location.href = "Ronny_Collaguazo_Pilatuña_Práctica4.html"
   }
 };
-/*
-let myPromise = new Promise(function(myResolve, myReject) {
-  let req = new XMLHttpRequest();
-  req.open('GET', "mycar.htm");
-  req.onload = function() {
-    if (req.status == 200) {
-      myResolve(req.response);
-    } else {
-      myReject("File not Found");
-    }
-  };
-  req.send();
-});*/
 
+//----------
+//PROMESA---
+//----------
+
+/*La idea de la promesa es que al acabar una partida entera, se espere 3 segundos
+y compruebe algún click en algun sitio del documento. Si no detecta nada, se entiende
+que abandonaron el teclado (se fueron por algún motivo), el juego acabará y volverá a la
+pantalla de inicio automáticamente. Si pulsa en algún sitio se entiende que siguen, pero
+están pensando lo que harán luego
+ -Si se pulsa, se da como resuelto, si no se dará como error, por lo que mostraremos un contador 
+  que al finalizar nos llevará a la portada, saliendo del juego*/
 function myPromise() {
   return new Promise(function (myResolve, myReject) {
 
     var sePulso = false
-
+    //Detectamos algún click en el documento
     document.onclick = function () {
       sePulso = true
+      //Paramos la espera, no hace falta esperar más, está atento el jugador
       clearTimeout(myTim);
     };
 
+    //Espero los 3 segundos
     var myTim = setTimeout(function () {
       sePulso = false
     }, 3000)
 
+    //Trás 3 segundos devolvemos si fue correcto (se pulsó) o error (no se pulsó)
     setTimeout(function () {
       if (sePulso) {
-        myResolve("se puso");
+        myResolve("Se pulsó");
       } else {
-        myReject("error promesa, no lo ha pulsado");
+        myReject("No se pulsó");
       }
     }, 3000)
 
-
   })
+}
+
+//------------------------------------------------------------------------
+//FUNCIÓN QUE GESTIONA LA VICTORIA (mostrar cuadros, promesa, contador)---
+//------------------------------------------------------------------------
+function aplicar_victoria(jugador, color) {
+  
+  //Bloqueamos la tecla espacio, para que acabe la partida por si acaso
+  addEventListener("keydown", function (e) {
+    if (e.key === ' ' || e.key === 'Spacebar') {
+      finalizada_partida = true
+    }
+  })
+
+  //Ocultamos el canvas del juego
+  document.getElementsByTagName('canvas')[0].style.animation = "desvanece 1s forwards";
+  //Ponemos el fondo del ganador, jugador 1 azul, jugador 2 rojo
+  switch (color) {
+    case "azul":
+      document.body.style.animation = "fondo_azul_animacion 1s forwards"
+      break;
+    case "rojo":
+      document.body.style.animation = "fondo_rojo_animacion 1s forwards"
+      break;
+  }
+  //Mostramos el cuadro de victoria
+  document.getElementById("container").style.animation = "aparece 1s forwards";
+  document.getElementById("nombre_ganador").innerHTML = jugador
+
+  /*USANDO LA PROMESA*/
+  //TRATAREMOS SOLO EL ERROR (NO SE INTERRUMPIÓ LA APARICIÓN DEL CONTADOR PULSANDO EN ALGÚN SITIO)
+  //POR LO QUE, MOSTRAREMOS EL CONTADOR
+  myPromise().catch(function () {
+    //Aumentamos, para que quepa el contador
+    document.getElementById("container").style.height = "52em"
+    //Hacemos que aparezca el contador, esta ocultado por defecto
+    document.getElementById("contador").style.animation = "aparece2 1s forwards";
+    //Hacemos funcionar el contador
+    var timeout_contador = setTimeout(cuenta_atras, 1000);
+    /*IMPORTANTE: ESTAREMOS DE NUEVO PENDIENTE A OTRO CLICK PARA PARAR EL CONTADOR CUANDO FUNCIONE
+      SI SE HACE CLICK, PARAMOS EL CONTADOR, Y LO OCULTAMOS*/
+    document.onclick = function () {
+      clearTimeout(timeout_contador);
+      //Paramos todos los Timeout
+      var id = window.setTimeout(function () { }, 0);
+      while (id--) {
+        window.clearTimeout(id); // will do nothing if no timeout with id is present
+      }
+      //Reducimos de nuevo y ocultamos el contador
+      document.getElementById("container").style.height = "35em"
+      document.getElementById("contador").style.animation = "desvanece 1s forwards"
+    };
+  })
+
 }
