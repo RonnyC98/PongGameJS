@@ -1,0 +1,188 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    flex-direction: column;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 36px rgb(66, 66, 66);
+    border-radius: 20px 20px 20px 20px;
+    margin-top: 3em;
+}
+
+button.salir {
+    padding: 0.5em 2em;
+    font-weight: bold;
+    margin: 0 auto;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0 0 10px 0 white inset, 0 0 5px 4px white;
+    border: 1px solid white;
+    text-transform: uppercase;
+    border-radius: 10px 10px 10px 10px;
+}
+
+button.salir:hover {
+    background-color: rgb(119, 119, 119);
+}
+
+@keyframes desvanece {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fondo_rojo_animacion {
+    to {
+        background-color: rgb(129, 0, 0);
+    }
+}
+
+@keyframes fondo_azul_animacion {
+    to {
+        background-color: rgb(0, 0, 116);
+    }
+}
+
+@keyframes aparece {
+    to {
+        opacity: 1
+    }
+}
+
+.container {
+    opacity: 0;
+    margin-top: 1em;
+    background-color: white;
+    width: 50em;
+    height: 35em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 26px 8px #000000;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.img_ganador {
+    margin-top: 3em;
+    width: 25em;
+    animation-name: animacion;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.img_ganador>img {
+    width: 100%;
+}
+
+@keyframes animacion {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animacion2 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.container h1 {
+    text-transform: uppercase;
+}
+
+button.btn_ganador {
+    text-transform: uppercase;
+    padding: 0.8em 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#clock {
+    margin-bottom: 3em;
+}
+
+#clock {
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    animation-name: animacion2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    box-shadow: 0px 0px 26px 8px #000000;
+}
+
+#seconds {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 8em;
+    animation-name: animacion2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.botones {
+    margin-bottom: 0.5em;
+}
+
+#contador {
+    height: 0;
+    opacity: 0;
+    text-align: center;
+}
+
+@keyframes aumentaAlturaAnimacion {
+    to {
+        height: 50em;
+    }
+}
+
+@keyframes aparece2 {
+    to {
+        opacity: 1;
+        height: max-content;
+    }
+}
+
+#contador h5 {
+    margin-top: 0;
+    margin-bottom: 2.5em;
+}
+
+#contador h2 {
+    margin-bottom: 0.5em;
+}

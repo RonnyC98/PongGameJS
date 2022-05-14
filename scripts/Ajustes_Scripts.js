@@ -2,6 +2,7 @@
 //FUNCIONES QUE USAREMOS---
 //-------------------------
 
+//Bucle de música de fondo de Ajustes
 const ajustes_audio = new Audio("../audios/ajustes.mp3")
 if (localStorage.getItem("sonido") == "on") {
     ajustes_audio.play()

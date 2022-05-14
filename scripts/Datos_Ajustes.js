@@ -7,7 +7,7 @@ function crearDatosAjustesLS() {
         localStorage.setItem('dificultad', 'normal')
     }
     if (localStorage.getItem('sonido') === null) {
-        localStorage.setItem('sonido', 'on')
+        localStorage.setItem('sonido', 'off')
     }
     if (localStorage.getItem('puntosPartida') === null) {
         localStorage.setItem('puntosPartida', '5')

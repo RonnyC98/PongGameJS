@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pong</title>
+  <link rel="stylesheet" href="styles/Juego_Styles.css">
+</head>
+
+<body>
+  <!------------------------------->
+  <!--Declarando archivos Scripts-->
+  <!------------------------------->
+
+  <!--Script de librería externa de vectores para usarla en los cálculos de cambio de dirección,
+      efecto de reflejo de la pelota-->
+  <script src="scripts/vector2.js"></script>
+  <!--Script con la clase Pelota-->
+  <script src="scripts/Pelota.js"></script>
+  <!--Script con la clase Paleta-->
+  <script src="scripts/Paleta.js"></script>
+  <!--Contiene la creación de todos los elementos a dibujar en la pantalla, crea canvas, asigna
+      las imágenes de fondo de pelota, campo... incluye funciones reset(), y más...-->
+  <script src="scripts/Elementos.js"></script>
+  <!--Controla las teclas pulsadas-->
+  <script src="scripts/Teclado.js"></script>
+  <!--Contiene la función de actualizar(), los estado de los elementos-->
+  <script src="scripts/actualizar.js"></script>
+  <!--Contiene la función de renderizar(), dibujar los elementos en el canvas, marcador, pelota, etc..-->
+  <script src="scripts/renderizar.js"></script>
+  <!--Bucle main() del juego-->
+  <script src="scripts/main.js"></script>
+
+  <!--Botón superior que está siempre, por si se quiere salir-->
+  <button id="salir" class="salir">Salir</button>
+
+  <!--Cuadro de victoria, oculto hasta que haya un ganador-->
+  <div class="container" id="container">
+    <div class="img_ganador">
+      <img src="assets/ganador_img.png" alt="trofeo_ganador">
+    </div>
+    <h1>Ha ganado el jugador <span id="nombre_ganador">a</span></h1>
+    <div class="botones">
+      <button id="jugar" class="btn_ganador">Jugar de nuevo</button>
+      <button id="salir2" class="btn_ganador">Salir</button>
+    </div>
+    <!--Cuenta atrás usada en la promesa-->
+    <div id="contador">
+      <h2>Saliendo automáticamente en...</h2>
+      <h5>(Haga click en cualquier sitio para parar)</h5>
+      <div id="clock">
+        <span id="seconds">5</span>
+      </div>
+    </div>
+  </div>
+
+  <!--Scripts para redirección de botones-->
+  <script>
+    document.getElementById("salir").onclick = function () {
+      location.href = "Ronny_Collaguazo_Pilatuña_Práctica4.html";
+    };
+    document.getElementById("salir2").onclick = function () {
+      location.href = "Ronny_Collaguazo_Pilatuña_Práctica4.html";
+    };
+    document.getElementById("jugar").onclick = function () {
+      location.href = "Juego.html";
+    };
+  </script>
+</body>
+
+</html>

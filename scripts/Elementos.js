@@ -32,15 +32,15 @@ pelotaBgImagen.onload = function () {
 var temaCampo = localStorage.getItem("tema")
 switch (temaCampo) {
   case "futbol":
-    canvasBgImagen.src = "assets/campofutbol.png";
+    canvasBgImagen.src = "assets/campofutbol.jpg";
     pelotaBgImagen.src = "assets/futbol.png";
     break;
   case "baloncesto":
-    canvasBgImagen.src = "assets/campobaloncesto.png";
+    canvasBgImagen.src = "assets/campobaloncesto.jpg";
     pelotaBgImagen.src = "assets/baloncesto.png";
     break;
   case "tenis":
-    canvasBgImagen.src = "assets/campotenis.png";
+    canvasBgImagen.src = "assets/campotenis.jpg";
     pelotaBgImagen.src = "assets/tenis.png";
     break;
   default:
@@ -253,7 +253,7 @@ function aplicar_victoria(jugador, color) {
   //POR LO QUE, MOSTRAREMOS EL CONTADOR
   myPromise().catch(function () {
     //Aumentamos, para que quepa el contador
-    document.getElementById("container").style.height = "52em"
+    document.getElementById("container").style.height = "53em"
     //Hacemos que aparezca el contador, esta ocultado por defecto
     document.getElementById("contador").style.animation = "aparece2 1s forwards";
     //Hacemos funcionar el contador
@@ -275,6 +275,9 @@ function aplicar_victoria(jugador, color) {
 
 }
 
+//---------------------------------------------------
+//BUCLE DE MÚSICA DE FONDO DEL LA PÁGINA DEL JUEGO---
+//---------------------------------------------------
 const tema_audio = new Audio("../audios/tema_principal.mp3")
 if (localStorage.getItem("sonido") == "on") {
     tema_audio.play()
@@ -284,11 +287,13 @@ if (localStorage.getItem("sonido") == "on") {
     }, false)
 }
 
+//Otros sonido para usar luego, choce paleta, pared, victoria...
 const pong_audio = new Audio("../audios/pong.mp3")
 const pic_audio = new Audio("../audios/pic.mp3")
 const poc_audio = new Audio("../audios/poc.mp3")
 const victoria_audio = new Audio("../audios/victoria.mp3")
 
+//Función para usar sonido
 function gestSonido(sonido) {
   if (localStorage.getItem("sonido") == "on") {
     switch (sonido) {
